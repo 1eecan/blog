@@ -1,9 +1,21 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import stylex from "@stylexjs/stylex";
+import { colors } from "@stylexjs/open-props/lib/colors.stylex";
+import { fonts } from "@stylexjs/open-props/lib/fonts.stylex";
+
+const X = stylex.create({
+  test: {
+    color: colors.red5,
+    fontFamily: fonts.sans,
+  },
+});
+
+console.log(process.env.NODE_ENV);
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={styles.main + " " + stylex(X.test)}>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -15,7 +27,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -91,5 +103,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
