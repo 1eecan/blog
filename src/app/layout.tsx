@@ -22,7 +22,7 @@ export default function RootLayout({
         <Link href={"/about"}>go to about</Link>
         <br></br>
         <Link href={"/"}>go to post-list</Link>
-        {children}
+        <div className="max-w-[800px] mx-auto">{children}</div>
       </body>
     </html>
   );
