@@ -2,6 +2,8 @@ import { readdir } from "fs/promises";
 
 import getPost from "@/app/lib/utils/getPost";
 
+import Breadcrumb from "../../Breadcrumb/Breadcrumb";
+
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -14,31 +16,34 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const { data } = post;
   const mdxSource = post.content;
   return (
-    <div className="prose dark:text-white">
-      <div>{data.date}</div>
-      <MDXRemote
-        source={mdxSource}
-        options={{
-          mdxOptions: {
-            useDynamicImport: true,
-            remarkPlugins: [
-              remarkGfm,
-              remarkBreaks,
-              [remarkToc, { tight: true, maxDepth: 3 }],
-            ],
-            rehypePlugins: [
-              rehypeSlug,
-              [
-                rehypePrettyCode,
-                {
-                  theme: "rose-pine",
-                },
+    <>
+      <Breadcrumb />
+      <div className="prose dark:text-white">
+        <div>{data.date}</div>
+        <MDXRemote
+          source={mdxSource}
+          options={{
+            mdxOptions: {
+              useDynamicImport: true,
+              remarkPlugins: [
+                remarkGfm,
+                remarkBreaks,
+                [remarkToc, { tight: true, maxDepth: 3 }],
               ],
-            ],
-          },
-        }}
-      />
-    </div>
+              rehypePlugins: [
+                rehypeSlug,
+                [
+                  rehypePrettyCode,
+                  {
+                    theme: "rose-pine",
+                  },
+                ],
+              ],
+            },
+          }}
+        />
+      </div>
+    </>
   );
 };
 
