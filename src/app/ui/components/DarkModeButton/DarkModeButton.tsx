@@ -9,7 +9,7 @@ const THEME_KEY = "theme";
 const LIGHT_THEME = "light";
 const DARK_THEME = "dark";
 
-export default function DarkModeButton() {
+const DarkModeButton = () => {
   const [theme, setTheme] = useState<string | null>(null);
 
   const toggleDarkMode = () => {
@@ -46,8 +46,10 @@ export default function DarkModeButton() {
       )}
     </button>
   );
-}
+};
 
 const getStorage = (key: string): string | null => localStorage.getItem(key);
 const setStorage = (key: string, value: string): void =>
   localStorage.setItem(key, value);
+
+export default DarkModeButton;

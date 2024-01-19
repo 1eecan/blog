@@ -1,12 +1,12 @@
 import getPosts from "../lib/utils/getPosts";
 import Link from "next/link";
-import Breadcrumb from "./Breadcrumb/Breadcrumb";
+import Breadcrumb from "../ui/components/Breadcrumb/Breadcrumb";
 
 const Home = async () => {
   const posts = await getPosts();
 
   const cardComponentClass =
-    "w-40 h-64 border-solid border-2 border-[#a38b21] flex justify-center items-center";
+    "w-40 h-64 border-solid border-2 border-[#f1d970] flex justify-center items-center dark:border-[#a38b21]";
 
   return (
     <div className="flex flex-col gap-10">
