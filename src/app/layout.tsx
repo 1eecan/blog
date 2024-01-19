@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import DarkModeButton from "./DarkModeButton/DarkModeButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-white`}
+      >
         {" "}
         <Link href={"/about"}>go to about</Link>
         <br></br>
         <Link href={"/"}>go to post-list</Link>
+        <DarkModeButton />
         <div className="max-w-[800px] mx-auto">{children}</div>
       </body>
     </html>

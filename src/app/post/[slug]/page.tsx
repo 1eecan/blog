@@ -14,7 +14,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const { data } = post;
   const mdxSource = post.content;
   return (
-    <div className="prose">
+    <div className="prose dark:text-white">
       <div>{data.date}</div>
       <MDXRemote
         source={mdxSource}
