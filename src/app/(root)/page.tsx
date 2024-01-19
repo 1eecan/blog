@@ -1,6 +1,6 @@
 import getPosts from "../lib/utils/getPosts";
 import Link from "next/link";
-import Breadcrumb from "./Breadcrumb/Breadcrumb";
+import Breadcrumb from "../ui/components/Breadcrumb/Breadcrumb";
 
 const Home = async () => {
   const posts = await getPosts();

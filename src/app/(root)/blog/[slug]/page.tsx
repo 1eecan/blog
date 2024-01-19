@@ -2,7 +2,7 @@ import { readdir } from "fs/promises";
 
 import getPost from "@/app/lib/utils/getPost";
 
-import Breadcrumb from "../../Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../../ui/components/Breadcrumb/Breadcrumb";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -10,7 +10,7 @@ import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
-import ProgressBar from "../../ProgressBar/ProgressBar";
+import ProgressBar from "../../../ui/components/ProgressBar/ProgressBar";
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost({ params });
