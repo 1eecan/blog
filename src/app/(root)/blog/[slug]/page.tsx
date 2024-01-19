@@ -10,6 +10,7 @@ import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
+import ProgressBar from "../../ProgressBar/ProgressBar";
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost({ params });
@@ -17,6 +18,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const mdxSource = post.content;
   return (
     <>
+      <ProgressBar />
       <Breadcrumb />
       <div className="prose dark:text-white">
         <div>{data.date}</div>
