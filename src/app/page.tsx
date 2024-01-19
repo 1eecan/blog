@@ -12,7 +12,6 @@ const Home = async () => {
             <div>{post.title}</div>
             <div>{post.date}</div>
             <div>{post.spoiler}</div>
-            <article>{post.slug}</article>
           </Link>
         ))}
       </div>
