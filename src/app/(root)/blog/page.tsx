@@ -1,14 +1,13 @@
 import getPosts from "../../lib/utils/getPosts";
 import Link from "next/link";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 const BlogHome = async () => {
   const posts = await getPosts();
   return (
     <>
-      <main className="bg-gray-300">
-        <Link href="/">backward</Link>
-      </main>
-      <div>
+      <Breadcrumb />
+      <div className="mt-10 flex flex-col gap-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}/`}>
             <div>{post.title}</div>

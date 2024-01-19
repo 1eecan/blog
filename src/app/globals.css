@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html {
+  padding: 10%;
   scroll-behavior: smooth;
 }
 html::-webkit-scrollbar {

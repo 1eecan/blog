@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 const Projects = () => {
   return (
     <>
-      <Link href="/">backward</Link>
+      <Breadcrumb />
       <div>Projects</div>
     </>
   );

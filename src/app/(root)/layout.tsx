@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Link from "next/link";
-import DarkModeButton from "./DarkModeButton/DarkModeButton";
 
+import Header from "./Header/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,11 +18,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-white`}
+        className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-[#dddddd]`}
       >
-        <nav className="flex justify-end">
-          <DarkModeButton />
-        </nav>
+        <Header />
         <div className="max-w-[800px] mx-auto">{children}</div>
       </body>
     </html>
