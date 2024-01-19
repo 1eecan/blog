@@ -1,14 +1,16 @@
-import getPosts from "./lib/utils/getPosts";
+import getPosts from "../../lib/utils/getPosts";
 import Link from "next/link";
 
-const Home = async () => {
+const BlogHome = async () => {
   const posts = await getPosts();
   return (
     <>
-      <main className="bg-gray-300">Home</main>
+      <main className="bg-gray-300">
+        <Link href="/">backward</Link>
+      </main>
       <div>
         {posts.map((post) => (
-          <Link key={post.slug} href={`/post/${post.slug}/`}>
+          <Link key={post.slug} href={`/blog/${post.slug}/`}>
             <div>{post.title}</div>
             <div>{post.date}</div>
             <div>{post.spoiler}</div>
@@ -19,4 +21,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default BlogHome;

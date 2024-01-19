@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Link from "next/link";
 import DarkModeButton from "./DarkModeButton/DarkModeButton";
 
@@ -21,11 +21,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-white`}
       >
-        {" "}
-        <Link href={"/about"}>go to about</Link>
-        <br></br>
-        <Link href={"/"}>go to post-list</Link>
-        <DarkModeButton />
+        <nav className="flex justify-end">
+          <DarkModeButton />
+        </nav>
         <div className="max-w-[800px] mx-auto">{children}</div>
       </body>
     </html>
