@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function ProgressBar() {
+const ProgressBar = () => {
   const [currentProgress, setCurrentProgress] = useState("0");
 
   const scrollEvent = () => {
@@ -41,4 +41,6 @@ export default function ProgressBar() {
       ></div>
     </div>
   );
-}
+};
+
+export default ProgressBar;

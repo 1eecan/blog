@@ -1,7 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-export default function Breadcrumb() {
+
+const Breadcrumb = () => {
   const pathname = usePathname();
   return (
     <nav className="w-full flex justify-between">
@@ -12,4 +13,6 @@ export default function Breadcrumb() {
       </div>
     </nav>
   );
-}
+};
+
+export default Breadcrumb;

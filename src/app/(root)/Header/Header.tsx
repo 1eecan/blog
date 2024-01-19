@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 
-export default function Header() {
+const Header = () => {
   const router = useRouter();
   return (
     <nav className="w-full flex justify-between">
@@ -20,4 +20,6 @@ export default function Header() {
       <DarkModeButton />
     </nav>
   );
-}
+};
+
+export default Header;
