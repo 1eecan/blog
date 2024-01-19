@@ -9,7 +9,7 @@ const Header = () => {
     <nav className="w-full flex justify-between">
       <div className="flex">
         <p
-          className="text-lg font-semibold dark:text-white"
+          className="text-lg font-semibold dark:text-white hover:cursor-pointer"
           onClick={() => {
             router.back();
           }}
