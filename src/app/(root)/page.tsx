@@ -2,9 +2,7 @@ import getPosts from "../_lib/utils/getPosts";
 import Link from "next/link";
 import Breadcrumb from "../_ui/components/Breadcrumb/Breadcrumb";
 
-const Home = async () => {
-  const posts = await getPosts();
-
+const Home = () => {
   const cardComponentClass =
     "w-40 h-64 border-solid border-2 border-[#f1d970] flex justify-center items-center dark:border-[#a38b21]";
 
