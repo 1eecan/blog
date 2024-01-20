@@ -1,4 +1,3 @@
-import getPosts from "../_lib/utils/getPosts";
 import Link from "next/link";
 import Breadcrumb from "../_ui/components/Breadcrumb/Breadcrumb";
 
