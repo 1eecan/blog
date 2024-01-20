@@ -1,7 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 
-const setCookie = (key: string, value: string) => {
+const setCookie = async (key: string, value: string) => {
   cookies().set(key, value);
 };
 
