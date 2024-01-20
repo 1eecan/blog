@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 
-const Header = () => {
+const Header = ({ theme }: { theme: string | undefined }) => {
   const router = useRouter();
   return (
     <nav className="w-full flex justify-between">
@@ -17,7 +17,7 @@ const Header = () => {
           cd ..
         </p>
       </div>
-      <DarkModeButton />
+      <DarkModeButton buttonTheme={theme} />
     </nav>
   );
 };
