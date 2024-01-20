@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Moon from "./assets/moon.svg";
 import Sun from "./assets/sun.svg";
 import Image from "next/image";
-import { setCookie } from "@/app/_ui/components/DarkModeButton/setCookie";
+import setCookie from "@/app/_lib/utils/setCookie";
 
 const THEME_KEY = "theme";
 const LIGHT_THEME = "light";
