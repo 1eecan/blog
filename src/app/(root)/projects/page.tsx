@@ -1,4 +1,4 @@
-import Breadcrumb from "../../ui/components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../_ui/components/Breadcrumb/Breadcrumb";
 
 const Projects = () => {
   return (
