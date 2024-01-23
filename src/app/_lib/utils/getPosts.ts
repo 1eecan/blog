@@ -1,5 +1,6 @@
 import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
+import path from "path";
 
 type Post = {
   slug: string;
@@ -10,12 +11,15 @@ type Post = {
 };
 
 const getPosts = async () => {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const target = path.join(process.cwd(), "public");
+  const entries = await readdir(target, {
+    withFileTypes: true,
+  });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
   const fileContents = await Promise.all(
-    dirs.map((dir) => readFile("./public/" + dir + "/index.md", "utf8"))
+    dirs.map((dir) => readFile(target + "/" + dir + "/index.md", "utf8"))
   );
   const posts: Post[] = dirs.map((slug, i) => {
     const fileContent = fileContents[i];
