@@ -4,24 +4,21 @@ import { useState, useEffect } from "react";
 import Moon from "./assets/moon.svg";
 import Sun from "./assets/sun.svg";
 import Image from "next/image";
-import setCookie from "@/app/_lib/utils/setCookie";
 
-const THEME_KEY = "theme";
 const LIGHT_THEME = "light";
 const DARK_THEME = "dark";
 
 const DarkModeButton = ({
-  buttonTheme,
+  initialTheme,
 }: {
-  buttonTheme: string | undefined;
+  initialTheme: string | undefined;
 }) => {
   const [theme, setTheme] = useState<string | undefined>(() =>
-    buttonTheme === undefined ? LIGHT_THEME : buttonTheme
+    initialTheme === undefined ? LIGHT_THEME : DARK_THEME
   );
 
   const toggleDarkMode = () => {
     const newTheme = theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
-    setCookie(THEME_KEY, newTheme);
     setTheme(newTheme);
   };
 

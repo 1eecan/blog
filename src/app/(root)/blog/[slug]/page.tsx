@@ -19,7 +19,6 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <ProgressBar />
-      <Breadcrumb />
       <div className="prose dark:text-white">
         <div>{data.date}</div>
         <MDXRemote

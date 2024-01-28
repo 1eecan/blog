@@ -7,7 +7,6 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <Breadcrumb />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab hic ducimus
         dolore dolorem nam, accusantium magni suscipit possimus quidem non eius

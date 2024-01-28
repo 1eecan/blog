@@ -6,7 +6,6 @@ const BlogHome = async () => {
   const posts = await getPosts();
   return (
     <>
-      <Breadcrumb />
       <div className="mt-10 flex flex-col gap-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}/`}>
