@@ -1,4 +1,5 @@
 import { readdir } from "fs/promises";
+import path from "path";
 
 import getPost from "@/app/_lib/utils/getPost";
 
@@ -47,7 +48,8 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 export default Post;
 
 export async function generateStaticParams() {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const target = path.join(process.cwd(), "public/");
+  const entries = await readdir(target, { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
