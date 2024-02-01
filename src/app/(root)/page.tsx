@@ -1,29 +1,58 @@
-import Link from "next/link";
-
+import linkIcon from "../../../public/linkIcon.svg";
+import Image from "next/image";
 const Home = () => {
-  const cardComponentClass =
-    "w-40 h-64 border-solid border-2 border-[#f1d970] flex justify-center items-center dark:border-[#a38b21]";
-
   return (
-    <div className="flex flex-col gap-10">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab hic ducimus
-        dolore dolorem nam, accusantium magni suscipit possimus quidem non eius
-        laborum eum eaque inventore ut modi doloribus, sint provident.
-      </p>
-      <div className="flex justify-around">
-        {" "}
-        <div className={cardComponentClass}>
-          <Link href="/projects">Projects</Link>
-        </div>
-        <div className={cardComponentClass}>
-          <Link href="/blog">Blog</Link>
-        </div>
-        <div className={cardComponentClass}>
-          <Link href="/bookmark">Bookmark</Link>
-        </div>
-      </div>
-    </div>
+    <>
+      <header>
+        <h1 className="text-4xl font-bold">About</h1>
+      </header>
+      <hr className="my-5" />
+      <section className="my-12 flex flex-col  gap-2 items-center">
+        <img
+          src={"https://avatars.githubusercontent.com/u/120288440?v=4"}
+          width={"180"}
+          height={"180"}
+          className="rounded-full"
+          alt="profile image"
+        />
+        <h3 className="text-xl font-bold">1eecan</h3>
+        <p>Web FrontEnd Engineer</p>
+        <p>South Korea</p>
+      </section>
+      <section>
+        <h1 className="text-4xl font-bold">Link</h1>
+        <hr className="my-5" />
+        <ul>
+          <li>
+            <a
+              href="https://github.com/1eecan"
+              className="flex underline hover:text-white"
+            >
+              Github
+              <Image src={linkIcon} alt="github link" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://dear-industry-95c.notion.site/Chan-Lee-e7edd44b31c14433838ead3ea37aa0a9?pvs=4"
+              className="flex underline hover:text-white"
+            >
+              Resume (Notion)
+              <Image src={linkIcon} alt="notion resume link" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:busyx2modernsociety@gmail.com"
+              className="flex underline hover:text-white"
+            >
+              Email
+              <Image src={linkIcon} alt="e-mail" />
+            </a>
+          </li>
+        </ul>
+      </section>
+    </>
   );
 };
 

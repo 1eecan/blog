@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="ko" className="dark">
       <body
-        className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-[#dddddd] m-[30px]`}
+        className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-[#dddddd]`}
       >
         <Header />
-        <div className="max-w-[800px] mx-auto">{children}</div>
+        <div className="max-w-[1000px] mx-auto">{children}</div>
       </body>
     </html>
   );
