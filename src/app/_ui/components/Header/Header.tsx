@@ -1,23 +1,14 @@
-"use client";
+import Link from "next/link";
 
-import { useRouter } from "next/navigation";
-import DarkModeButton from "../DarkModeButton/DarkModeButton";
-
-const Header = ({ initialTheme }: { initialTheme: string | undefined }) => {
-  const router = useRouter();
+const Header = () => {
   return (
     <nav className="w-full flex justify-between">
-      <div className="flex">
-        <p
-          className="text-lg font-semibold dark:text-white hover:cursor-pointer"
-          onClick={() => {
-            router.back();
-          }}
-        >
-          cd ..
-        </p>
+      <div className="w-1/3 flex justify-between">
+        <Link href={`/blog`}>Article</Link>
+        <Link href={`/projects`}>Project</Link>
+        <Link href={`/bookmark`}>Bookmark</Link>
       </div>
-      <DarkModeButton initialTheme={initialTheme} />
+      <Link href={`/`}>about</Link>
     </nav>
   );
 };
