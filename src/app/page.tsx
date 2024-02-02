@@ -1,4 +1,4 @@
-import linkIcon from "../../../public/linkIcon.svg";
+import linkIcon from "../../public/linkIcon.svg";
 import Image from "next/image";
 const Home = () => {
   return (

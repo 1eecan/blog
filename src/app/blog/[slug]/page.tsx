@@ -1,7 +1,7 @@
 import { readdir } from "fs/promises";
 import path from "path";
 
-import getPost from "@/app/_lib/utils/getPost";
+import getPost from "@/_lib/utils/getPost";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";

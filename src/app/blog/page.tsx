@@ -1,4 +1,4 @@
-import getPosts from "../../_lib/utils/getPosts";
+import getPosts from "@/_lib/utils/getPosts";
 import Link from "next/link";
 
 const BlogHome = async () => {
