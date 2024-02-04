@@ -10,12 +10,12 @@ type Post = {
 };
 
 const getPosts = async () => {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const entries = await readdir("./public/article/", { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
   const fileContents = await Promise.all(
-    dirs.map((dir) => readFile("./public/" + dir + "/index.md", "utf8"))
+    dirs.map((dir) => readFile("./public/article/" + dir + "/index.md", "utf8"))
   );
   const posts: Post[] = dirs.map((slug, i) => {
     const fileContent = fileContents[i];
