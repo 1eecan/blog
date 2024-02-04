@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <nav className="w-full flex justify-between mb-[50px]">
       <div className="flex gap-3 justify-between">
-        <Link href={`/blog`}>Article</Link>
+        <Link href={`/article`}>Article</Link>
         <Link href={`/projects`}>Project</Link>
         <Link href={`/bookmark`}>Bookmark</Link>
       </div>

@@ -48,8 +48,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 export default Post;
 
 export async function generateStaticParams() {
-  const target = path.join(process.cwd(), "public/");
-  const entries = await readdir(target, { withFileTypes: true });
+  const entries = await readdir("./public/", { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);

@@ -7,7 +7,7 @@ const BlogHome = async () => {
     <>
       <div className="mt-10 flex flex-col gap-6">
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}/`}>
+          <Link key={post.slug} href={`/article/${post.slug}/`}>
             <div>{post.title}</div>
             <div>{post.date}</div>
             <div>{post.spoiler}</div>
