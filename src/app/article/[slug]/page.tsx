@@ -1,8 +1,7 @@
 import { readdir } from "fs/promises";
+import path from "path";
 
-import getPost from "@/app/_lib/utils/getPost";
-
-import Breadcrumb from "../../../_ui/components/Breadcrumb/Breadcrumb";
+import getPost from "@/_lib/utils/getPost";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -10,7 +9,6 @@ import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
-import ProgressBar from "../../../_ui/components/ProgressBar/ProgressBar";
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost({ params });
@@ -18,8 +16,6 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const mdxSource = post.content;
   return (
     <>
-      <ProgressBar />
-      <Breadcrumb />
       <div className="prose dark:text-white">
         <div>{data.date}</div>
         <MDXRemote

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
-import getCookie from "../_lib/utils/getCookie";
+import "./globals.css";
 
-import Header from "../_ui/components/Header/Header";
+import Header from "@/_ui/components/Header/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,12 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={getCookie()}>
+    <html lang="ko" className="dark">
       <body
         className={`${inter.className} antialiased dark:bg-[#1a1a1a] dark:text-[#dddddd]`}
       >
-        <Header theme={getCookie()} />
-        <div className="max-w-[800px] mx-auto">{children}</div>
+        <Header />
+        <div className="max-w-[1000px] mx-auto">{children}</div>
       </body>
     </html>
   );
