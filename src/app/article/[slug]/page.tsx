@@ -48,7 +48,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 export default Post;
 
 export async function generateStaticParams() {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const entries = await readdir("./public/article/", { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
