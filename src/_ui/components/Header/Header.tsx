@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <nav className="w-full flex justify-between mb-[50px]">
+    <nav className="w-full flex justify-between mb-[30px]">
       <div className="flex gap-3 justify-between">
         <Link href={`/article`}>Article</Link>
         <Link href={`/projects`}>Project</Link>
