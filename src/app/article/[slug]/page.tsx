@@ -18,7 +18,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <ProgressBar />
-      <div className="prose dark:text-white">
+      <div className="prose dark:text-white dark:prose-headings:text-white">
         <div>{data.date}</div>
         <MDXRemote
           source={mdxSource}
