@@ -1,5 +1,3 @@
-import ProgressBar from "@/_ui/components/ProgressBar/ProgressBar";
-
 import { readdir } from "fs/promises";
 
 import getPost from "@/_lib/utils/getPost";
@@ -17,7 +15,6 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const mdxSource = post.content;
   return (
     <>
-      <ProgressBar />
       <div className="prose dark:text-white dark:prose-headings:text-white">
         <div>{data.date}</div>
         <MDXRemote
