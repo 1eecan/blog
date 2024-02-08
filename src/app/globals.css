@@ -10,11 +10,11 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-#contents {
+/* #contents {
   display: none;
-}
+} */
 
-#contents + ul {
+/* #contents + ul {
   position: fixed;
   right: 0px;
   width: 20%;
@@ -23,7 +23,8 @@ html::-webkit-scrollbar {
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
+} */
+
 #contents + ul::-webkit-scrollbar {
   display: none;
 }
@@ -33,4 +34,5 @@ html::-webkit-scrollbar {
 }
 #contents + ul a {
   text-decoration: none;
+  color: #fff;
 }

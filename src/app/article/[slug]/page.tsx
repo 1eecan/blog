@@ -1,6 +1,5 @@
-import { readdir } from "fs/promises";
-import path from "path";
-
+import { readdir, readFile } from "fs/promises";
+import matter from "gray-matter";
 import getPost from "@/_lib/utils/getPost";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -16,7 +15,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const mdxSource = post.content;
   return (
     <>
-      <div className="prose dark:text-white">
+      <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white">
         <div>{data.date}</div>
         <MDXRemote
           source={mdxSource}
@@ -53,4 +52,20 @@ export async function generateStaticParams() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
   return dirs.map((dir) => ({ slug: dir }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const file = await readFile(
+    "./public/article/" + params.slug + "/index.md",
+    "utf8"
+  );
+  let { data } = matter(file);
+  return {
+    title: data.title + " — 1eecan",
+    description: data.spoiler,
+  };
 }
