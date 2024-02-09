@@ -4,7 +4,7 @@ const ScrollUpButton = () => {
   const clickEvent = () =>
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "instant",
     });
 
   return (
