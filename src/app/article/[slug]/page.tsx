@@ -18,10 +18,12 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white">
+        <header className="text-4xl font-bold mb-5">{data.title}</header>
         <div className="flex items-center gap-1 text-xs">
           <CalenderIcon />
           {data.date}
         </div>
+        <hr className="my-5" />
         <MDXRemote
           source={mdxSource}
           options={{
