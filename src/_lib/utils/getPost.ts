@@ -1,9 +1,10 @@
-import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
 import matter from "gray-matter";
 
-const getPost = async ({ params }: { params: { slug: string } }) => {
-  const filename = "./public/article/" + params.slug + "/index.md";
-  const file = await readFile(filename, "utf8");
+const getPost = ({ params }: { params: { slug: string[] } }) => {
+  const filePath = params.slug.join("/");
+  const filename = "./public/article/" + filePath + "/index.md";
+  const file = readFileSync(filename, "utf8");
   const { content, data } = matter(file);
   return { content, data };
 };

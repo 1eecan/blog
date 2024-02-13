@@ -1,5 +1,4 @@
 import LinkIcon from "@/_ui/icons/LinkIcon";
-import Image from "next/image";
 const About = () => {
   return (
     <>
