@@ -1,30 +1,41 @@
-import { readdir, readFile } from "fs/promises";
+import { readdirSync, readFileSync } from "fs";
 import matter from "gray-matter";
-
 type Post = {
   slug: string;
-
   title: string;
   date: string;
   spoiler: string;
 };
 
-const getPosts = async () => {
-  const entries = await readdir("./public/article/", { withFileTypes: true });
-  const dirs = entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
-  const fileContents = await Promise.all(
-    dirs.map((dir) => readFile("./public/article/" + dir + "/index.md", "utf8"))
-  );
-  const posts: Post[] = dirs.map((slug, i) => {
-    const fileContent = fileContents[i];
-    const { data } = matter(fileContent);
-    return { slug, title: data.title, date: data.date, spoiler: data.spoiler };
+const rootPath = "./public/article";
+
+const getEntries = (path: string = "") => {
+  const entries = readdirSync(`${rootPath}/${path}`, {
+    withFileTypes: true,
   });
+  return entries;
+};
+
+const getPosts = async () => {
+  const entries = getEntries();
+  const filePath = entries.flatMap(({ name }, index) => {
+    return getEntries(name).flatMap(({ name, path }) => {
+      return `${path}/${name}`;
+    });
+  });
+  const fileContents = await Promise.all(
+    filePath.map((path) => readFileSync(`${path}/index.md`, "utf8"))
+  );
+  const posts: Post[] = fileContents.map((fileContent, index) => {
+    const slug = filePath[index].replace(rootPath + "/", "");
+    const { data } = matter(fileContent) as any;
+    return { slug, ...data };
+  });
+
   posts.sort((a, b) => {
     return Date.parse(a.date) < Date.parse(b.date) ? 1 : -1;
   });
+
   return posts;
 };
 

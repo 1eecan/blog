@@ -1,5 +1,4 @@
-import linkIcon from "../../../public/linkIcon.svg";
-import Image from "next/image";
+import LinkIcon from "@/_ui/icons/LinkIcon";
 const About = () => {
   return (
     <>
@@ -23,32 +22,35 @@ const About = () => {
         <h1 className="text-4xl font-bold">Link</h1>
         <hr className="my-5" />
         <ul>
-          <li>
+          <li className="flex items-center">
             <a
               href="https://github.com/1eecan"
               className="flex underline hover:text-white"
+              aria-label="github link"
             >
               Github
-              <Image src={linkIcon} alt="github link" />
             </a>
+            <LinkIcon className="hover:text-white" />
           </li>
-          <li>
+          <li className="flex items-center">
             <a
               href="https://dear-industry-95c.notion.site/Chan-Lee-e7edd44b31c14433838ead3ea37aa0a9?pvs=4"
               className="flex underline hover:text-white"
+              aria-label="notion resume link"
             >
               Resume (Notion)
-              <Image src={linkIcon} alt="notion resume link" />
             </a>
+            <LinkIcon className="hover:text-white" />
           </li>
-          <li>
+          <li className="flex items-center">
             <a
               href="mailto:busyx2modernsociety@gmail.com"
               className="flex underline hover:text-white"
+              aria-label="e-mail"
             >
               Email
-              <Image src={linkIcon} alt="e-mail" />
             </a>
+            <LinkIcon className="hover:text-white" />
           </li>
         </ul>
       </section>

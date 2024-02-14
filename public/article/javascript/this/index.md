@@ -1,7 +1,7 @@
 ---
-title: "This"
+title: "This란 무엇일까?"
 date: "2024-01-12"
-spoiler: "자바스크립트의 this란?"
+spoiler: "자바스크립트의 this에 대해 알아보자"
 ---
 
 ## Contents
