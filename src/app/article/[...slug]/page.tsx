@@ -18,7 +18,7 @@ const Post = async ({ params }: { params: { slug: string[] } }) => {
   const mdxSource = content;
   return (
     <>
-      <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white">
+      <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white mx-auto">
         <header className="text-4xl font-bold mb-5">{data.title}</header>
         <div className="flex items-center gap-1 text-xs">
           <CalenderIcon />
