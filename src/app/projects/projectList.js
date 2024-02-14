@@ -48,7 +48,6 @@ const projectList = [
     ],
     servicePage: [
       <Github key="Github" className="w-4 sm:w-5 h-fit" />,
-      <Npm key="Npm" className="w-4 sm:w-5 h-fit fill-white" />,
       <Web key="Web" className="w-4 sm:w-5 h-fit" />,
     ],
   },
