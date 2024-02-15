@@ -1,18 +1,24 @@
 import getEntries from "@/_lib/utils/getEntries";
 import Link from "next/link";
+import getPosts from "@/_lib/utils/getPosts";
 
-const SeriesPage = ({ params }: { params: { slug: string } }) => {
-  const series = getEntries(params.slug);
+const SeriesPage = async ({ params }: { params: { slug: string } }) => {
+  const posts = await getPosts();
+  const series = posts.filter(
+    (post) => post.slug.split("/")[0] === params.slug
+  );
   return (
     <>
       <header>
         <h1 className="text-4xl font-bold">Series</h1>
       </header>
       <hr className="my-5" />
-      <section className="my-12 flex flex-col  gap-2">
-        {series.map((_) => (
-          <Link key={_} href={`/article/${params.slug}/${_}/`}>
-            <div>{_}</div>
+      <section className="my-12 flex flex-col gap-2">
+        {series.map((post) => (
+          <Link key={post.title} href={`/article/${post.slug}/`}>
+            <div>{post.title}</div>
+            <div>{post.date}</div>
+            <div>{post.spoiler}</div>
           </Link>
         ))}
       </section>
