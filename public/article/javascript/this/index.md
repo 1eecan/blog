@@ -1,109 +1,227 @@
 ---
-title: "This란 무엇일까?"
+title: "자바스크립트 this 분석"
 date: "2024-01-12"
-spoiler: "자바스크립트의 this에 대해 알아보자"
+spoiler: "모호한 개념을 타파해봅니다."
 ---
 
-## Contents
+# h1 Heading 8-)
 
-# this란?
+## h2 Heading
 
-mdn 공식문서에서는 this를 다음과 같이 설명하고 있습니다.
-![alt1](./image1.png)
+### h3 Heading
 
-> https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this
+#### h4 Heading
 
-언뜻보았을때 "this가 뭔지 알려달라니까 주절주절 이상한 말들을 하고있네"라고 생각할 수도 있습니다.
+##### h5 Heading
 
-하지만 이 글들을 끝까지 읽고 다시 위의 this에 대한 설명을 읽어본다면, 저 설명이 한번에 this를 제법 잘 설명했다는 사실을 알 수 있을 것입니다.
+###### h6 Heading
 
-# 1.자신의 가장 가까운 상위 객체를 가리킴
+## Horizontal Rules
 
-this의 가장 기본적인 기능은 this가 쓰인 위치의 가장 가까운 상위 객체를 가리킨다는 것입니다. 간단한 예제를 2개 보여드리겠습니다.
-![alt2](./image2.png)
-먼저 브라우저 콘솔에서 this를 출력해보면 window객체를 가리키게 됩니다.
+---
 
-사실 우리가 자바스크립트에 뭔가 코드를 짜게 되면, 아무것도 없는 빈공간에 짜는것이 아니라 window(브라우저)/global(node.js)이라는 전역객체에 코드를 짜게 되는것입니다. 그래서 우리의 코드가 정의된 바로 상위 객체인 window를 가리키게 됩니다.
+---
 
-하지만 다음 예제를 보면 좀 의아한 생각이 들 수도 있습니다.
-![alt3](./image3.png)
+---
 
-node.js 환경에서 this가 뭔지 출력을 해봤더니 그냥 빈 객체 {}를 나타냅니다. 분명 위에서 언급한대로면 global이라는 객체가 나와야 할 것 같은데 말이죠,,,,
-![alt4](./image4.png)
+## Typographic replacements
 
-> 알쏭달쏭 자바스크립트 세상...
+Enable typographer option to see result.
 
-결과적으로 말하면 node.js에서 저희가 짠 스크립트들은 어떤 함수에 담기고 그 함수를 담고있는 것은 모듈입니다.
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
 
-결국, 상위 객체는 빈 객체이기 때문에 위와 같은 코드를 실행시키면 빈 객체가 출력이 되게 됩니다.
+test.. test... test..... test?..... test!....
 
-# 2.일반 함수에서는 전역객체를 가리킨다.
+!!!!!! ???? ,, -- ---
 
-그렇다면, 어떻게 하면 global 객체를 확인할 수 있을까요?
+"Smartypants, double quotes" and 'single quotes'
 
-다음과 같은 코드를 실행시켜 봅시다.
-![alt5](./image5.png)
+## Emphasis
 
-일반적인 함수인 function(){}에서 this를 실행시키면 global이 잘 나타나는 것을 알 수 있습니다.
+**This is bold text**
 
-왜냐하면, 일반함수 안에서 this를 실행시키면 그 this는 전역객체를 가리키기 때문입니다.
+**This is bold text**
 
-## !객체안의 함수 프로퍼티에서의 this는 상위객체를 가리킵니다.
+_This is italic text_
 
-![alt6](./image6.png)
+_This is italic text_
 
-객체의 벨류로 할당된 함수의 경우, 맨 앞에서 설명했듯이 가장 가까운 상위객체인 obj를 가리키는 반면,
-벨류안의 일반함수는 전역 객체를 가리킨다는 사실을 알 수 있습니다.
+~~Strikethrough~~
 
-# 3.생성자에서는 자기 자신을 가리킨다.
+## Blockquotes
 
-한편 다음과 같은 상황도 생각해 볼 수 있습니다.
-![alt7](./image7.png)
+> Blockquotes can also be nested...
+>
+> > ...by using additional greater-than signs right next to each other...
+> >
+> > > ...or with spaces between arrows.
 
-다음의 코드에서 철수는 this값을 할당 받았고, 위에서 설명했다시피 this가 일반함수에서 실행되었기 때문에 전역객체를 가리키게 됩니다.
-전역객체에 .을 써서 철수의 이름과 키가 들어가긴했네요.
+## Lists
 
-하지만 new 연산자를 함수 실행부 앞에 붙여서 실행을 한다면 다음과 같이
-![alt8](./image8.png)
+Unordered
 
-this는 생성자 함수의 인스턴스를 가리키게 됩니다.
+- Create a list by starting a line with `+`, `-`, or `*`
+- Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    - Ac tristique libero volutpat at
+    * Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
+- Very easy!
 
-즉, 만약 인스턴스를 만들 목적으로 함수를 짜고 있다면, 인스턴스를 만들 때, 이런이런 변수를 만들어주세요~ 하고 this를 쓸 수도 있습니다. class에서도 비슷하게 this가 쓰입니다.
+Ordered
 
-## 주의사항
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
 
-주의할 점은 다른 프로그래밍 언어들과 다르게
-![alt9](./image9.png)
+4. You can use sequential numbers...
+5. ...or keep all the numbers as `1.`
 
-다음과 같이 생성자 함수 안에 있는 변수를 가리키기 위해 this를 쓰면 안된다는 점입니다. 저 경우에는 인스턴스의 name은 this로 만든 name이 들어갑니다. let이나 const로 만든 변수의 경우에는 모습을 감추네요.
-생성자 함수 안에서 this.name = 뭐뭐에 접근하려면 계속 this.name = 붜붜 라고 입력을 해줘야 합니다.
-![alt10](./image10.png)
-![alt11](./image11.png)
+Start numbering with offset:
 
-# 4.이벤트리스너에서는
+57. foo
+1. bar
 
-자바스크립트에는 addEventListener라는 메소드가 있습니다.
-여기에서 this는 무엇을 가리킬까요?
+## Code
 
-버튼을 만들고 클릭을 하면 this를 출력하게 코드를 짜보았습니다.
-![alt12](./image12.png)
-출력 결과, 버튼 요소가 반환이 되었습니다.
+Inline `code`
 
-이는 다음과 같이
-![alt13](./image13.png)
-e.currentTarget(현재 이벤트가 부착 되어있는 요소)를 가리킨다는 사실을 알 수 있습니다.
+Indented code
 
-# 5.arrow func에서는?
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
 
-그럼 마지막으로 하나만 더 예시를 들어보겠습니다.
-addEventListener의 함수를 화살표 함수로 바꾸면 어떻게 될까요? 똑같은 결과가 나올까요?
-![alt14](./image14.png)
+Block code "fences"
 
-결과는 전역객체를 가리키고 있습니다.
+```
+Sample text here...
+```
 
-사실 앞에서 말한 콜백과 같은 곳에도 일반함수를 쓰면 this가 전역객체를 가리키는 성질 때문에, es6에 추가된 화살표함수는 this가 자신의 가장 가까운 상위 객체를 가리키도록 만들어졌습니다.(정확히는 화살표함수는 this를 가지고 있지 않아서 자신을 둘러싼 렉시컬 스코프의 this를 사용)
+Syntax highlighting
 
-위의 예시에서는 화살표함수의 바로 위 상위객체가 전역객체이기 때문에 this를 출력했을 때 전역객체가 나온것이구요,
-![alt15](./image15.png)
+```js
+var foo = function (bar) {
+  return bar++;
+};
 
-다음과 같이 객체를 만들어주고 그 안에서 이벤트리스너를 달고 화살표함수를 쓴 경우, 자신의 가장 가까운 상위객체가 obj이기 때문에 obj가 출력이 되는 것을 알 수 있습니다.
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
+
+Right aligned columns
+
+| Option |                                                               Description |
+| -----: | ------------------------------------------------------------------------: |
+|   data | path to data files to supply the data that will be passed into templates. |
+| engine |    engine to be used for processing templates. Handlebars is the default. |
+|    ext |                                      extension to be used for dest files. |
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg "The Dojocat"
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :cry: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+: Definition 1
+with lazy continuation.
+
+Term 2 with _inline markup_
+
+: Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+~ Definition 1
+
+Term 2
+~ Definition 2a
+~ Definition 2b
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+\*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+_here be dragons_
+:::

@@ -1,7 +1,7 @@
 ---
-title: "자바스크립트 클로저 분석"
+title: "next.js static exports 분석하기"
 date: "2024-01-12"
-spoiler: "생각보다 많은 곳에서 활용되는 개념입니다."
+spoiler: "next.js의 빌드방식에 대해 알아봅니다."
 ---
 
 # h1 Heading 8-)
