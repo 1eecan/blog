@@ -12,6 +12,8 @@ import remarkToc from "remark-toc";
 
 import CalenderIcon from "@/_ui/icons/CalenderIcon";
 
+import "./markdown.css";
+
 const Post = async ({ params }: { params: { slug: string[] } }) => {
   const post = getPost({ params });
   const { data, content } = post;
@@ -25,28 +27,30 @@ const Post = async ({ params }: { params: { slug: string[] } }) => {
           {data.date}
         </div>
         <hr className="my-5" />
-        <MDXRemote
-          source={mdxSource}
-          options={{
-            mdxOptions: {
-              useDynamicImport: true,
-              remarkPlugins: [
-                remarkGfm,
-                remarkBreaks,
-                [remarkToc, { tight: true, maxDepth: 3 }],
-              ],
-              rehypePlugins: [
-                rehypeSlug,
-                [
-                  rehypePrettyCode,
-                  {
-                    theme: "rose-pine",
-                  },
+        <div className="markdown">
+          <MDXRemote
+            source={mdxSource}
+            options={{
+              mdxOptions: {
+                useDynamicImport: true,
+                remarkPlugins: [
+                  remarkGfm,
+                  remarkBreaks,
+                  [remarkToc, { tight: true, maxDepth: 3 }],
                 ],
-              ],
-            },
-          }}
-        />
+                rehypePlugins: [
+                  rehypeSlug,
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: "rose-pine",
+                    },
+                  ],
+                ],
+              },
+            }}
+          />
+        </div>
       </div>
     </>
   );

@@ -1,0 +1,5 @@
+.markdown a,
+.markdown code,
+.markdown strong {
+  @apply text-white;
+}
