@@ -1,7 +1,7 @@
 ---
-title: "next.js static exports 분석하기"
+title: "blog 폴더 테스팅"
 date: "2024-01-12"
-spoiler: "next.js의 빌드방식에 대해 알아봅니다."
+spoiler: "테스팅파일1"
 ---
 
 # h1 Heading 8-)

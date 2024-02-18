@@ -1,7 +1,7 @@
 ---
-title: "자바스크립트 this 분석"
+title: "자바스크립트 폴더 테스팅2"
 date: "2024-01-12"
-spoiler: "모호한 개념을 타파해봅니다."
+spoiler: "테스팅파일3"
 ---
 
 # h1 Heading 8-)
