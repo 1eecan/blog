@@ -2,6 +2,7 @@
 title: "blog 폴더 테스팅"
 date: "2024-01-12"
 spoiler: "테스팅파일1"
+featured: false
 ---
 
 # h1 Heading 8-)
