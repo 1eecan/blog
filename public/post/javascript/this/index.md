@@ -3,7 +3,7 @@ title: "자바스크립트 폴더 테스팅2"
 date: "2024-01-12"
 spoiler: "테스팅파일3"
 featured: false
-thumbnail: "/article/javascript/this/testing.jpg"
+thumbnail: "/post/javascript/this/testing.jpg"
 ---
 
 # h1 Heading 8-)

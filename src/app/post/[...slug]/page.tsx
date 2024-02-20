@@ -14,7 +14,11 @@ import CalenderIcon from "@/_ui/icons/CalenderIcon";
 
 import "./markdown.css";
 
-const Post = async ({ params }: { params: { slug: string[] } }) => {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string[] };
+}) {
   const post = getPost({ params });
   const { data, content } = post;
   const mdxSource = content;
@@ -54,9 +58,7 @@ const Post = async ({ params }: { params: { slug: string[] } }) => {
       </div>
     </>
   );
-};
-
-export default Post;
+}
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -65,10 +67,7 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string[] } }) {
   const filePath = params.slug.join("/");
-  const file = readFileSync(
-    "./public/article/" + filePath + "/index.md",
-    "utf8"
-  );
+  const file = readFileSync("./public/post/" + filePath + "/index.md", "utf8");
   const { data } = matter(file);
   return {
     title: data.title + " — 1eecan",

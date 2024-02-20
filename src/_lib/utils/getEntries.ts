@@ -1,12 +1,10 @@
 import { readdirSync } from "fs";
 
-const rootPath = "./public/article";
+const rootPath = "./public/post";
 
-const getEntries = (path: string = "") => {
+export default function getEntries(path: string = "") {
   const entries = readdirSync(`${rootPath}/${path}`, {
     withFileTypes: true,
   }).map((entry) => entry.name);
   return entries;
-};
-
-export default getEntries;
+}

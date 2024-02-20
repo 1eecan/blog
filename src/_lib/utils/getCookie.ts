@@ -1,8 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
 
-const getCookie = () => {
+export default function getCookie() {
   return cookies().get("theme")?.value === "dark" ? "dark" : undefined;
-};
-
-export default getCookie;
+}

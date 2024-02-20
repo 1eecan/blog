@@ -1,5 +1,5 @@
 import LinkIcon from "@/_ui/icons/LinkIcon";
-const About = () => {
+export default function About() {
   return (
     <>
       <header>
@@ -56,6 +56,4 @@ const About = () => {
       </section>
     </>
   );
-};
-
-export default About;
+}

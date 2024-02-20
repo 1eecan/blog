@@ -1,7 +1,7 @@
 import getEntries from "@/_lib/utils/getEntries";
 import Link from "next/link";
 
-const SeriesListPage = () => {
+export default function SeriesListPage() {
   const seriesList = getEntries();
   return (
     <>
@@ -18,6 +18,4 @@ const SeriesListPage = () => {
       </section>
     </>
   );
-};
-
-export default SeriesListPage;
+}
