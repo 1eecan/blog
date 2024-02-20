@@ -3,6 +3,7 @@ title: "2024 모의 면접 스터디 회고"
 date: "2024-02-18"
 spoiler: "과연 이번에 진행한 면접 스터디는 성공적이었을까?"
 featured: true
+thumbnail: "/article/retrospect/2024_interview_study/ending.png"
 ---
 
 ## Contents
