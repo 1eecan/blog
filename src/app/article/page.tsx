@@ -1,5 +1,6 @@
 import getPosts from "@/_lib/utils/getPosts";
 import Link from "next/link";
+import Card from "@/_ui/components/Card/Card";
 
 const BlogHome = async () => {
   const posts = await getPosts();
@@ -12,9 +13,7 @@ const BlogHome = async () => {
       <div className="mt-10 flex flex-col gap-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/article/${post.slug}/`}>
-            <div>{post.title}</div>
-            <div>{post.date}</div>
-            <div>{post.spoiler}</div>
+            <Card {...post}></Card>
           </Link>
         ))}
       </div>
