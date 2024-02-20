@@ -8,11 +8,11 @@ import Image from "next/image";
 const LIGHT_THEME = "light";
 const DARK_THEME = "dark";
 
-const DarkModeButton = ({
+export default function DarkModeButton({
   initialTheme,
 }: {
   initialTheme: string | undefined;
-}) => {
+}) {
   const [theme, setTheme] = useState<string | undefined>(() =>
     initialTheme === undefined ? LIGHT_THEME : DARK_THEME
   );
@@ -39,6 +39,4 @@ const DarkModeButton = ({
       )}
     </button>
   );
-};
-
-export default DarkModeButton;
+}

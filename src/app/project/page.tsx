@@ -1,7 +1,7 @@
 import projectList from "./projectList";
 import ProjectCard from "@/_ui/components/ProjectCard/ProjectCard";
 
-const Projects = () => {
+export default function ProjectPage() {
   return (
     <>
       <header>
@@ -19,6 +19,4 @@ const Projects = () => {
       </section>
     </>
   );
-};
-
-export default Projects;
+}

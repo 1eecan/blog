@@ -1,4 +1,4 @@
-const Bookmark = () => {
+export default function Bookmark() {
   return (
     <>
       <header>
@@ -8,6 +8,4 @@ const Bookmark = () => {
       <section className="my-12 flex flex-col  gap-2 items-center"></section>
     </>
   );
-};
-
-export default Bookmark;
+}

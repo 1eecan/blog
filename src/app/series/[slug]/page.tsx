@@ -3,7 +3,11 @@ import Link from "next/link";
 import getPosts from "@/_lib/utils/getPosts";
 import Card from "@/_ui/components/Card/Card";
 
-const SeriesPage = async ({ params }: { params: { slug: string } }) => {
+export default async function SeriesPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const posts = await getPosts();
   const series = posts.filter(
     (post) => post.slug.split("/")[0] === params.slug
@@ -16,18 +20,16 @@ const SeriesPage = async ({ params }: { params: { slug: string } }) => {
       <hr className="my-5" />
       <section className="my-12 flex flex-col gap-2">
         {series.map((post) => (
-          <Link key={post.title} href={`/article/${post.slug}/`}>
+          <Link key={post.title} href={`/post/${post.slug}/`}>
             <Card {...post} />
           </Link>
         ))}
       </section>
     </>
   );
-};
+}
 
 export function generateStaticParams() {
   const entries = getEntries();
   return entries.map((entry) => ({ slug: entry }));
 }
-
-export default SeriesPage;

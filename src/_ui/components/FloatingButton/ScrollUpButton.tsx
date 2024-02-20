@@ -1,6 +1,6 @@
 "use client";
 
-const ScrollUpButton = () => {
+export default function ScrollUpButton() {
   const clickEvent = () =>
     window.scrollTo({
       top: 0,
@@ -17,6 +17,4 @@ const ScrollUpButton = () => {
       </button>
     </>
   );
-};
-
-export default ScrollUpButton;
+}

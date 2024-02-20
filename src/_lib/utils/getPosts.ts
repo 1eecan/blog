@@ -9,7 +9,7 @@ type Post = {
   thumbnail: string;
 };
 
-const rootPath = "./public/article";
+const rootPath = "./public/post";
 
 const getEntries = (path: string = "") => {
   const entries = readdirSync(`${rootPath}/${path}`, {
@@ -18,7 +18,7 @@ const getEntries = (path: string = "") => {
   return entries;
 };
 
-const getPosts = async () => {
+export default async function getPosts() {
   const entries = getEntries();
   const filePath = entries.flatMap(({ name }, index) => {
     return getEntries(name).flatMap(({ name, path }) => {
@@ -39,6 +39,4 @@ const getPosts = async () => {
   });
 
   return posts;
-};
-
-export default getPosts;
+}
