@@ -6,6 +6,7 @@ type Post = {
   date: string;
   spoiler: string;
   featured: boolean;
+  thumbnail: string;
 };
 
 const rootPath = "./public/article";
