@@ -1,9 +1,9 @@
 ---
-title: "바닐라 자바스크립트로 axios 만들기"
+title: "axios 인터셉터 만들어보기"
 date: "2024-02-20"
-spoiler: "axios의 일부 기능을 따라해봅시다.axios의 일부 기능을 따라해봅시다.axios의 일부 기능을 따라해봅시다.axios의 일부 기능을 따라해봅시다."
+spoiler: "axios에 대해 공부해보고, axios의 인터셉터 기능을 만들어봅니다."
 featured: true
-thumbnail: "/post/vanilla/axios/fusion.png"
+thumbnail: "/post/vanilla/axios/axios_interceptor.png"
 ---
 
 ## Contents
@@ -20,14 +20,18 @@ thumbnail: "/post/vanilla/axios/fusion.png"
 
 뒤늦게 면접을 복기해보면서 axios라는 라이브러리에 대한 활용을 바탕으로 대답을 할 걸... 이라는 후회가 들었습니다.
 
-그래서 한번 그때의 대답과 요구사항을 융합(?) 하는 겸, 간단하게 axios의 interceptor를 vanilla JS로 구현해보고자 합니다.
+그래서 한번 그때의 대답과 요구사항을 융합(?) 하는 겸, axios에 대해 공부해보고, 간단하게 axios의 interceptor를 vanilla JS로 구현해보고자 합니다.
 ![퓨전](./fusion.png)
 
-# Axios의 어떤 특성을 가져와서 개발해볼까?
+# Axios를 왜 사용할까?
 
-먼저 axios라는 라이브러리가 무엇이고, 왜 사람들이 이걸 쓰는지 간단하게 짚고 넘어가야 할 것 같습니다.
+axios는 http 클라이언트입니다.
 
-제가 axios를 처음 접했을 때는 단순히 "코드의 가독성이 향상되어서 많이 쓰이는 구나" 라고 생각을 했었습니다.
+http를 사용해서 서버와 통신하는 라이브러리라고 이해할 수 있겠습니다.
+
+그런데 왜 사람들이 axios를 애용하는 걸까요?
+
+제가 axios를 처음 접했을 때는 단순히 '코드의 가독성을 향상시켜주는 라이브러리' 라고 생각을 했었습니다.
 
 과연 그럴까요?
 
@@ -168,3 +172,7 @@ XMLHttpRequest와 Fetch API는 다음과 같은 차이를 나타냅니다.
 |        |
 
 axios는 프로미스를 지원하고, XMLHttpRequest 자체의 학습이 목적이 아님으로 Fetch API를 사용해보도록 하겠습니다.
+
+# Http 요청을 만들기
+
+우선 url을 주었을때 get 요청을 날릴 수 있는 코드를 작성해보겠습니다.
