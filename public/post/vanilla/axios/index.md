@@ -175,4 +175,49 @@ axios는 프로미스를 지원하고, XMLHttpRequest 자체의 학습이 목적
 
 # Http 요청을 만들기
 
-우선 url을 주었을때 get 요청을 날릴 수 있는 코드를 작성해보겠습니다.
+Fetch API를 통해 다음과 같은 요청을 보낼 수 있다고 언급했습니다.
+
+```js
+fetch("https://koreanjson.com/users")
+  .then(function (response) {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.error("Fetch error: " + error.message);
+  });
+```
+
+이를 다음과 같이 바꿔보겠습니다.
+
+```js
+const DEFAULT_URL = "https://koreanjson.com";
+const END_POINT = "/users";
+
+const request = function (url = "", endPoint = "") {
+  fetch(url + endPoint)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    })
+    .catch(function (error) {
+      console.error("Fetch error: " + error.message);
+    });
+};
+
+request(DEFAULT_URL, END_POINT);
+```
+
+이렇게 되면 request라는 함수에 url과 end point를 넣어주면 get 요청이 가게 됩니다.
+
+post, put, delete 요청은 일단 제쳐두고, 가장 중요한 요청과 응답부터 가로채보겠습니다.
