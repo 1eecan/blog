@@ -221,3 +221,37 @@ request(DEFAULT_URL, END_POINT);
 이렇게 되면 request라는 함수에 url과 end point를 넣어주면 get 요청이 가게 됩니다.
 
 post, put, delete 요청은 일단 제쳐두고, 가장 중요한 요청과 응답부터 가로채보겠습니다.
+
+우선 axios에서 interceptor를 어떻게 사용하고 있는지부터 봐야할 것 같습니다.
+
+```js
+// 요청 인터셉터 추가하기
+axios.interceptors.request.use(
+  function (config) {
+    // 요청이 전달되기 전에 작업 수행
+    return config;
+  },
+  function (error) {
+    // 요청 오류가 있는 작업 수행
+    return Promise.reject(error);
+  }
+);
+
+// 응답 인터셉터 추가하기
+axios.interceptors.response.use(
+  function (response) {
+    // 2xx 범위에 있는 상태 코드는 이 함수를 트리거 합니다.
+    // 응답 데이터가 있는 작업 수행
+    return response;
+  },
+  function (error) {
+    // 2xx 외의 범위에 있는 상태 코드는 이 함수를 트리거 합니다.
+    // 응답 오류가 있는 작업 수행
+    return Promise.reject(error);
+  }
+);
+```
+
+이런식으로 사용을 한다고 합니다.
+
+그러고 보니 axios.get, axios.create, axios.interceptor... 와 같은 형식으로 이루어져 있으므로 하나의 객체라고 봐도 될 것 같고, instance를 만들어내는 걸 보니 class로 쓰거나 prototype 형식의 문법을 써도 괜찮을 것 같습니다.
