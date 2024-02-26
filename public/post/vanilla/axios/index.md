@@ -255,3 +255,152 @@ axios.interceptors.response.use(
 이런식으로 사용을 한다고 합니다.
 
 그러고 보니 axios.get, axios.create, axios.interceptor... 와 같은 형식으로 이루어져 있으므로 하나의 객체라고 봐도 될 것 같고, instance를 만들어내는 걸 보니 class로 쓰거나 prototype 형식의 문법을 써도 괜찮을 것 같습니다.
+
+클래스를 써서 작성해보면 다음과 같겠습니다.
+
+```js
+//request.js
+class InterceptorManager {
+  constructor() {
+    this.handlers = [];
+  }
+
+  use(interceptor) {
+    this.handlers.push(interceptor);
+  }
+}
+
+export class Request {
+  static interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager(),
+  };
+
+  static async get(url, endPoint) {
+    this.interceptors.request.handlers.forEach((handler) => handler());
+
+    try {
+      let response = await fetch(url + endPoint);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      let data = await response.json();
+
+      this.interceptors.response.handlers.forEach((handler) => {
+        data = handler(data);
+      });
+
+      console.log(data);
+    } catch (error) {
+      console.error("Fetch error: " + error.message);
+    }
+  }
+}
+
+//main.js
+import { Request } from "./modules/request.js";
+import { DEFAULT_URL } from "./constants/DEFAULT_URL.js";
+import { END_POINT } from "./constants/END_POINT.js";
+
+Request.interceptors.request.use(() => console.log("before"));
+Request.interceptors.response.use((dataList) =>
+  dataList.filter((data) => (data.id % 2 === 0 ? false : true))
+);
+
+(async function run() {
+  const data = await Request.get(DEFAULT_URL, END_POINT);
+  console.log("data", data);
+})();
+//before
+//data (5) [{…}, {…}, {…}, {…}, {…}]
+```
+
+대략 이런식으로 하면 axios에서 쓰는 사용법에 맞춰서 interceptor를 사용할 수 있을 것 같습니다.
+
+# Node.js에서도 돌아가게 하기
+
+문제는 이제 이 코드를 node.js에서도 돌아가게 해야한다는 것입니다.
+
+node.js는 자체적으로 http 요청을 하는 코드를 사용할 수 있는데요, 우리는 import문을 사용했으니까 동적으로 import를 하는 방식을 사용하면 되겠습니다.
+
+isNode라는 플래그를 만들고 isNode가 true값일떄는 https모듈을 사용하고, 아닐 경우에는 그대로 fetch를 쓰면 되겠습니다.
+
+그리고 isNode라는 플래그를 만들기 위해서 process라는 객체를 조사하면 될 것 같습니다.
+
+**process란?**
+process는 Node.js에서 제공하는 전역 객체 중 하나로, 현재 Node.js 프로세스에 대한 정보와 제어를 위한 다양한 속성과 메소드를 포함하고 있습니다.
+
+process에는 많은 속성들이 있는데, 보통 프로젝트를 할 떄 환경변수에 접근하기 위해 process.env를 사용하고는 하죠? 그때의 process가 이 process입니다.
+
+이 process 객체가 브라우저에서는 undefined이니까 이 점을 활용해서 isNode 플래그를 만들면 되겠습니다.
+
+추가로 process의 version이라는 속성이 있는데요, 이걸 사용하면 현재 node의 몇버전을 사용하는지 알려주니까 이게 null인지 검사해주면 좀 더 안전한 코드가 되겠습니다.
+
+```js
+class InterceptorManager {
+  constructor() {
+    this.handlers = [];
+  }
+
+  use(interceptor) {
+    this.handlers.push(interceptor);
+  }
+}
+
+export class Request {
+  static interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager(),
+  };
+
+  static async get(url, endPoint) {
+    // 환경 감지
+    const isNode = typeof process !== "undefined" && process.version != null;
+
+    this.interceptors.request.handlers.forEach((handler) => handler());
+
+    try {
+      let data;
+
+      if (isNode) {
+        // Node.js 환경
+        const https = await import("https");
+        data = await new Promise((resolve, reject) => {
+          https
+            .get(url + endPoint, (res) => {
+              let rawData = "";
+              res.on("data", (chunk) => (rawData += chunk));
+              res.on("end", () => {
+                try {
+                  const parsedData = JSON.parse(rawData);
+                  resolve(parsedData);
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })
+            .on("error", reject);
+        });
+      } else {
+        // 브라우저 환경
+        const response = await fetch(url + endPoint);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        data = await response.json();
+      }
+
+      this.interceptors.response.handlers.forEach((handler) => {
+        data = handler(data);
+      });
+
+      return data;
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+      throw error;
+    }
+  }
+}
+```
+
+이제 이 코드는 Node.js 환경에서도 돌아가고 브라우저에서도 돌아가게 되었습니다...!!
