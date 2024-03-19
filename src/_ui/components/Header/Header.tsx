@@ -8,7 +8,6 @@ export default function Header() {
         <Link href={`/post`}>Post</Link>
         <Link href={`/series`}>Series</Link>
         <Link href={`/project`}>Project</Link>
-        <Link href={`/bookmark`}>Bookmark</Link>
       </div>
       <Link href={`/about`}>
         <img
