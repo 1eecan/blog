@@ -47,7 +47,7 @@ export default async function PostPage({
                   [
                     rehypePrettyCode,
                     {
-                      theme: "rose-pine",
+                      theme: "slack-dark",
                     },
                   ],
                 ],
