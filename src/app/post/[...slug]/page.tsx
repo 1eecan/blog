@@ -24,7 +24,7 @@ export default async function PostPage({
   const mdxSource = content;
   return (
     <>
-      <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white mx-auto">
+      <div className="prose dark:text-white dark:prose-headings:text-white dark:prose-blockquote:text-white md:mx-auto lg:mx-0">
         <header className="text-4xl font-bold mb-5">{data.title}</header>
         <div className="flex items-center gap-1 text-xs">
           <CalenderIcon />
