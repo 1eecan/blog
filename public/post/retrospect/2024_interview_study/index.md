@@ -18,7 +18,7 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 무엇을 할 지 감이 잡히지 않았고 결국에 제가 다시 믿어본 방법은 사람이었습니다.
 
-![함께자리기](./grow_together.png)
+![함께자리기](/post/retrospect/grow_together.png)
 
 > [함께자라기 독후감 링크](https://velog.io/@busybusyworld/%ED%95%A8%EA%BB%98%EC%9E%90%EB%9D%BC%EA%B8%B0-%EB%8F%85%ED%9B%84%EA%B0%90)
 
