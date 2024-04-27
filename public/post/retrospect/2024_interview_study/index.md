@@ -18,7 +18,7 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 무엇을 할 지 감이 잡히지 않았고 결국에 제가 다시 믿어본 방법은 사람이었습니다.
 
-![함께자리기](./grow_together.png)
+![함께자리기](/post/retrospect/2024_interview_study/grow_together.png)
 
 > [함께자라기 독후감 링크](https://velog.io/@busybusyworld/%ED%95%A8%EA%BB%98%EC%9E%90%EB%9D%BC%EA%B8%B0-%EB%8F%85%ED%9B%84%EA%B0%90)
 
@@ -28,7 +28,7 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 스터디가 성공하기 위해 데브코스에서 운영해보았던 스터디 경험을 복기해봤습니다.
 
-![스터디 가이드 라인](./study_guide_line.png)
+![스터디 가이드 라인](/post/retrospect/2024_interview_study/study_guide_line.png)
 
 > [해당 회고 글 링크](https://velog.io/@busybusyworld/2023%EB%85%84-7%EC%9B%94-%ED%9A%8C%EA%B3%A0-in-%ED%94%84%EB%A1%A0%ED%8A%B8-%EC%97%94%EB%93%9C-%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4)
 
@@ -53,7 +53,7 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 모두 자발적으로 참여하는 이상, 한두명이 약속한 과제를 안해온다던지, 지각을 자주 한다던지 하게 되면 "나는 시간 지켜서 왔는데(바빠도 과제 해왔는데) 그럴 필요가 없나?"라는 생각이 들게 될 확률이 생길것입니다. 그렇게 되면 성공적으로 스터디의 목표를 달성하는데 애로사항이 생길 수 밖에 없을 것입니다.
 
-![이건희 어록](./lee_kun_hee.jpg)
+![이건희 어록](/post/retrospect/2024_interview_study/lee_kun_hee.jpg)
 
 # 면접스터디 설계
 
@@ -138,12 +138,12 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 - 노션을 활용해서 문서화 관리를 했습니다
 
-![노션 문서화 예시](./notion_1.png)
+![노션 문서화 예시](/post/retrospect/2024_interview_study/notion_1.png)
 
 - 자세한 내용은 다음과 같은 형식이었습니다.
 
-![노션 질문 예시1](./notion_2.png)
-![노션 질문 예시2](./notion_3.png)
+![노션 질문 예시1](/post/retrospect/2024_interview_study/notion_2.png)
+![노션 질문 예시2](/post/retrospect/2024_interview_study/notion_3.png)
 
 개인적으로 문서화를 해놓으니까 이렇게 정리를 할 때 편하다는 것을 글을 작성하면서 느끼고 있습니다. ㅎㅎ;;
 
@@ -176,4 +176,4 @@ thumbnail: "/post/retrospect/2024_interview_study/ending.png"
 
 꾸벅 (ㅡㅡ)
 
-![마무리사진](./ending.png)
+![마무리사진](/post/retrospect/2024_interview_study/ending.png)
