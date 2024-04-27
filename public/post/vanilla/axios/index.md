@@ -21,7 +21,7 @@ thumbnail: "/post/vanilla/axios/axios_interceptor.png"
 뒤늦게 면접을 복기해보면서 axios라는 라이브러리에 대한 활용을 바탕으로 대답을 할 걸... 이라는 후회가 들었습니다.
 
 그래서 한번 그때의 대답과 요구사항을 융합(?) 하는 겸, axios에 대해 공부해보고, 간단하게 axios의 interceptor를 vanilla JS로 구현해보고자 합니다.
-![퓨전](./fusion.png)
+![퓨전](/post/vanilla/axios/fusion.png)
 
 # Axios를 왜 사용할까?
 
@@ -126,7 +126,7 @@ node.js에서도 돌아가고 브라우저에서도 사용 가능하니 개발�
 
 그 밖에도 몇몇 이유가 있습니다. 공식홈페이지의 설명은 다음과 같습니다.
 
-![axios 설명](./axios_detail.png)
+![axios 설명](/post/vanilla/axios/axios_detail.png)
 
 제가 면접에서 대답한 질문의 답인 "어떤 함수로 감싼다"라는 맥락에서는 node 환경과 브라우저 환경 모두에서 동작하는게 중요해보입니다.
 
@@ -203,7 +203,7 @@ post, put, delete 요청은 일단 제쳐두고, 가장 중요한 요청과 응�
 
 우선 axios에서 interceptor를 어떻게 사용하고 있는지부터 봐야할 것 같습니다.
 
-![axios 인터셉터 사용법](./axios_interceptor_description.png)
+![axios 인터셉터 사용법](/post/vanilla/axios/axios_interceptor_description.png)
 
 이런식으로 사용을 한다고 합니다.
 
@@ -369,6 +369,6 @@ export class Request {
 왜냐하면 테스트를 하는 환경자체가 브라우저보다 까다롭기 때문입니다. 지금은 간단한 get요청을 날려보는 수준에 그치고, 또 http메소드를 테스트해볼 수 있는 사이트들도 많습니다만, 서버에서 로그를 찍어봐야한다 정도만 되어도 난이도가 올라가지 않을까요?
 
 아무튼 오늘도 내가 쓰는 라이브러리는 많은 개발자들의 땀으로 일궈졌다는 것을 상기하게되었습니다...ㅎㅎ;;
-![농부들의땀](./farmer.png)
+![농부들의땀](/post/vanilla/axios/farmer.png)
 
 > 감사합니다 센세이...
