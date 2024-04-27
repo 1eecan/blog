@@ -24,7 +24,7 @@ and
 npm init jest@latest
 ```
 
-![next공식문서 jest설명](./install_jest_terminal.png)
+![next공식문서 jest설명](/post/trouble_shooting/next_typescript_jest/install_jest_terminal.png)
 
 근데 공식문서를 보면 다음에 jest.config.ts를 다음과 같이 설정하라고 나와서 크게 의미가 있는지는 모르겠습니다.
 
@@ -67,13 +67,13 @@ package.json에 다음과 같은 코드 추가하면 npm run test를 사용해�
 
 # case 1. 컴포넌트를 타입으로 인식하는 경우
 
-![에러케이스1](./trouble_case_1.png)
+![에러케이스1](/post/trouble_shooting/next_typescript_jest/trouble_case_1.png)
 
 확장자를 .ts로 지정하면 컴포넌트를 타입으로 인식하기 때문에 에러가 발생합니다 .tsx확장자를 써줍시다.
 
 # case 2. ts-node를 설치해야하는 경우
 
-![에러케이스2](./trouble_case_2.png)
+![에러케이스2](/post/trouble_shooting/next_typescript_jest/trouble_case_2.png)
 
 그리고 **ts-node**(타입스크립트를 노드환경에서도 돌아가게 해주는 라이브러리) 라이브러리 설치해야 타입스크립트 테스트 돌릴 수 있습니다. 경고가 뜨면 설치하면 잘 돌아갑니다.
 
@@ -83,7 +83,7 @@ package.json에 다음과 같은 코드 추가하면 npm run test를 사용해�
 
 이 글을 적는 시점(2024.04.21)에서 스크린샷을 따기 위해 package-lock.json과 node_modules를 지우고 다시 설치했더니 다음과 같은 오류가 발생했습니다.
 
-![에러케이스3](./trouble_case_3.png)
+![에러케이스3](/post/trouble_shooting/next_typescript_jest/trouble_case_3.png)
 
 그래서 구글에 검색을 돌려도 마땅히 해결책이 없었습니다.
 
