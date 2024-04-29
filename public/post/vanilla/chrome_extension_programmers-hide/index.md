@@ -2,7 +2,7 @@
 title: "크롬 확장 프로그램 만들어보기"
 date: "2024-04-29"
 spoiler: "프로그래머스에서 쓸 크롬 확장 프로그램을 만들어봅니다."
-featured: false
+featured: true
 thumbnail: "/post/vanilla/chrome_extension_programmers-hide/thumbnail.png"
 ---
 
