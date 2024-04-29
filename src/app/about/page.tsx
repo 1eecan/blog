@@ -34,7 +34,7 @@ export default function About() {
           </li>
           <li className="flex items-center">
             <a
-              href="https://dear-industry-95c.notion.site/Chan-Lee-e7edd44b31c14433838ead3ea37aa0a9?pvs=4"
+              href="https://dear-industry-95c.notion.site/8c1b9310a2e4463696ac47c021d0a5e3?pvs=4"
               className="flex underline hover:text-white"
               aria-label="notion resume link"
             >
