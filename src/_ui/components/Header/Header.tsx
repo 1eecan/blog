@@ -7,7 +7,7 @@ export default function Header() {
         <Link href={`/`}>Home</Link>
         <Link href={`/post`}>Post</Link>
         <Link href={`/series`}>Series</Link>
-        <Link href={`/project`}>Project</Link>
+        {/* <Link href={`/project`}>Project</Link> */}
       </div>
       <Link href={`/about`}>
         <img
