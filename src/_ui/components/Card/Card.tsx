@@ -20,7 +20,9 @@ export default function Card({
       </div>
       <div className="px-6 pt-4 pb-2 h-12 text-white">{date}</div>
       <div className="px-6 py-4 h-36">
-        <div className="font-bold text-xl h-16 text-white">{title}</div>
+        <p className="font-bold text-xl h-15 text-white line-clamp-2">
+          {title}
+        </p>
         <p className="text-gray-400 text-base h-12 line-clamp-2">{spoiler}</p>
       </div>
     </div>
