@@ -235,6 +235,8 @@ Object.defineProperties(globalThis, {
 
 # 성공
 
-![describe](/post/trouble_shooting/next_typescript_jest_msw/describe10.png)
+![describe10](/post/trouble_shooting/next_typescript_jest_msw/describe10.png)
 
 테스트를 돌려보면 잘 작동합니다. 수고하셨습니다.
+
+참고 링크 : https://www.inflearn.com/questions/1084000/textencoder-is-not-defined-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%A9%EB%8B%88%EB%8B%A4
