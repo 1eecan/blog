@@ -178,9 +178,7 @@ const observer = new MutationObserver(() => {
 처음 content.js가 실행이 되면 html의 visibility를 hidden으로 만들어줍니다.
 DOM요소가 로딩이 전부 되기 전까지는 디바운스가 작동하다가 전부 로딩이 되면 셋팅을 불러와 적용하고 html의 visibility를 visible로 만들어주는 것이죠.
 
-문제는 DOM요소가 모두 로딩이 되어야 visibility를 변경시켜 주기 때문에 깜빡이는 문제가 발생을 한다는 것이었습니다.
-
-심지어 setTimeout 안의 콜백에는 visibility를 다시 hidden으로 만들어주는 코드가 들어가있기 때문에 이것 때문에 문제유형 또한 잠시 보이는 문제가 발생했습니다.
+문제는, setTimeout 안의 콜백은 일단 DOM요소가 추가되면 visibility를 hidden으로 만들어주는 식으로 작동을 하기 때문에, 문제 유형 DOM요소가 추가되고 모든 DOM요소가 다 로드는 그 찰나에 문제 유형이 잠시 보이는(=깜빡이는) 것이었습니다.
 
 심지어 https://school.programmers.co.kr/learn/courses/* url(문제를 푸는 페이지)에서는 문제가 더 심했습니다. breadcrumb를 가려야 했는데, 여기서는 먼저 html이 로딩이 돼서 맨 처음에 visibility를 hidden으로 만들어놓으면 디바운스가 적용이 되지 않아 페이지가 백지가 되는;; 사태가 벌어졌습니다.
 
